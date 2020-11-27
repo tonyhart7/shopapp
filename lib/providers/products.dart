@@ -69,7 +69,7 @@ class Products with ChangeNotifier {
   // }
 
   Future<void> addProduct(Product product) async {
-    const url = 'https://shopapp-a1ec4.firebaseio.com/produts.json';
+    const url = 'https://shopapp-a1ec4.firebaseio.com/products.json';
     try {
       final response = await http.post(
         url,

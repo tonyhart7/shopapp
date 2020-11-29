@@ -1,6 +1,5 @@
-# shopapp
-
-A new Flutter project.
+still working on core function
+so UI dnt look so great
 
 ## Getting Started
 

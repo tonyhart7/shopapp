@@ -24,16 +24,17 @@ class Product with ChangeNotifier {
     notifyListeners();
   }
 
-  Future<void> toogleFavoriteStatus() async {
+  Future<void> toogleFavoriteStatus(String token, String userId) async {
     final oldStatus = isFaforite;
     isFaforite = !isFaforite;
     notifyListeners();
-    final url = 'https://shopapp-a1ec4.firebaseio.com/products/$id.json';
+    final url =
+        'https://shopapp-a1ec4.firebaseio.com/userFavorites/$userId/$id.json?auth=$token';
     try {
-      final response = await http.patch(url,
-          body: json.encode({
-            'isFavorite': isFaforite,
-          }));
+      final response = await http.put(url,
+          body: json.encode(
+            isFaforite,
+          ));
       if (response.statusCode >= 400) {
         _setFavValue(oldStatus);
       }
